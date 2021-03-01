@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <form class="form-align" [formGroup]="enrolForm" novalidate>
+                <div style="text-align: center;">
+                    <h4>Enroll Form</h4>
+                </div>
+                <div class="form-group">
+                    <label for="email">Name:</label>
+                    <input type="text" class="form-control" name="name" formControlName="name" placeholder="Enter Name" required>
+                    <span class="has-error" *ngIf="enrolForm.controls['name'].touched && enrolForm.controls['name'].hasError('required')">This Field Required</span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Activation Status:</label>
+                    <select class="form-control" name="active" formControlName="active">
+                        <option [value]="true">Active</option>
+                        <option [value]="false">Inactive</option>
+                    </select>
+                    <span class="has-error" *ngIf="enrolForm.controls['active'].touched 
+                    && enrolForm.controls['active'].hasError('required')">This Field Required</span>
+                </div>
+                <div style="text-align: center;">
+                    <button class="btn btn-primary" [disabled]="enrolForm.invalid" (click)="updateEnroll()">Update</button>
+                    &nbsp;&nbsp;<a routerLink="/list" class="btn btn-danger">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

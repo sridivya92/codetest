@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="row" style="margin-top:10px;">
+      <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
+        <h2>Enrollees List</h2>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Activation Status</th>
+              <th>Name</th>
+              <th>Date of Birth</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of enrolles;">
+              <td>{{item.id}}</td>
+              <td>
+                  <span *ngIf="item?.active" style="color:green;"> 
+                      Active
+                  </span>
+                  <span *ngIf="!item?.active" style="color:red;"> 
+                      Inactive
+                  </span>
+                  <span></span>
+                </td>
+              <td>{{item.name ? item.name : '--'}}</td>
+              <td>{{item.dateOfBirth ? (item.dateOfBirth | date: 'mediumDate')  : '--'}}</td>
+              <td>
+                <a routerLink="/edit/{{item.id}}">Edit</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
