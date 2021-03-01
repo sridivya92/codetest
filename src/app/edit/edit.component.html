@@ -13,8 +13,8 @@
                 <div class="form-group">
                     <label for="email">Activation Status:</label>
                     <select class="form-control" name="active" formControlName="active">
-                        <option [value]="true">Active</option>
-                        <option [value]="false">Inactive</option>
+                        <option [ngValue]="true">Active</option>
+                        <option [ngValue]="false">Inactive</option>
                     </select>
                     <span class="has-error" *ngIf="enrolForm.controls['active'].touched 
                     && enrolForm.controls['active'].hasError('required')">This Field Required</span>
